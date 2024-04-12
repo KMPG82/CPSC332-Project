@@ -3,60 +3,50 @@ CREATE DATABASE Academic_Event_Management_DB;
 
 USE Academic_Event_Management_DB;
 
-CREATE TABLE PUBLISHER (
-    Name VARCHAR(30),
-    Address VARCHAR(50),
-    Phone VARCHAR(15),
-    PRIMARY KEY (Name)
+CREATE TABLE USER (
+    User_id int auto_increment,
+    Insert_date datetime,
+    Email varchar(50) unique,
+    Password varchar(50) unique,
+    F_name varchar(50),
+    L_name varchar(50),
+    P_number varchar(10),
+
+    PRIMARY KEY (User_id)
 );
 
-CREATE TABLE BOOK (
-    Book_id INT,
-    Title VARCHAR(50) NOT NULL,
-    Publisher_name VARCHAR(30) NOT NULL,
-    PRIMARY KEY (Book_id),
-	FOREIGN KEY (Publisher_name) REFERENCES PUBLISHER(Name)
+CREATE TABLE UNIVERSITY (
+    Uni_id int auto_increment,
+    Insert_date datetime,
+    Uni_name varchar(50) unique,
+
+    PRIMARY KEY (Uni_id)
 );
 
-CREATE TABLE BOOK_AUTHORS (
-    Book_id INT,
-    Author_name VARCHAR(30) NOT NULL,
-    PRIMARY KEY (Book_id, Author_name),
-    FOREIGN KEY (Book_id) REFERENCES BOOK(Book_id)
-);
+CREATE TABLE EVENT (
+    Event_id int auto_increment,
+    Insert_date datetime,
+    Start_date date,
+    Start_time time,
+    Venue varchar(50),
+    Abstract_deadline date,
+    Pub_date date,
+    Pub_time time,
+    Max_cap int,
+    Description varchar(250),
+    Event_name varchar(30),
+    Type varchar(30),
+    City varchar(30),
+    State varchar(30),
+	Street varchar(30),
+    Zip varchar(30),
+    Status varchar(30),
+	End_date date,
+    End_time time,
+	User_id int,
+    Uni_id int,
 
-CREATE TABLE LIBRARY_BRANCH (
-   Branch_id INT,
-   Branch_name VARCHAR(30) NOT NULL,
-   Address VARCHAR(50),
-   PRIMARY KEY (Branch_id)
-);
-
-CREATE TABLE BOOK_COPIES (
-    Book_id INT,
-    Branch_id INT,
-    No_of_copies INT NOT NULL CHECK (No_of_copies >= 0),
-    PRIMARY KEY (Book_id, Branch_id),
-    FOREIGN KEY (Book_id) REFERENCES BOOK(Book_id),
-    FOREIGN KEY (Branch_id) REFERENCES LIBRARY_BRANCH(Branch_id)
-);
-
-CREATE TABLE BORROWER (
-   Card_no INT,
-   Name VARCHAR(30) NOT NULL,
-   Address VARCHAR(50),
-   Phone VARCHAR(15),
-   PRIMARY KEY (Card_no)
-);
-
-CREATE TABLE BOOK_LOANS (
-   Book_id INT, 
-   Branch_id INT, 
-   Card_no INT, 
-   Date_out DATE NOT NULL, 
-   Due_date DATE NOT NULL, 
-   PRIMARY KEY (Book_Id, Branch_Id, Card_No), 
-   FOREIGN KEY (Book_Id) REFERENCES BOOK(Book_Id), 
-   FOREIGN Key(Branch_Id) REFERENCES LIBRARY_BRANCH(Branch_Id), 
-   FOREIGN Key(Card_No) REFERENCES BORROWER(Card_No)
+    PRIMARY KEY (Event_id),
+    foreign key (User_id) references USER(User_id),
+    foreign key (Uni_id) references UNIVERSITY(Uni_id)
 );
