@@ -33,7 +33,5 @@ if (isset($_POST["submit"])) {
 }
 
 //close connection
-if(is_resource($mysqli)){
-    $mysqli->close();
-}
+$mysqli->close();
 ?>

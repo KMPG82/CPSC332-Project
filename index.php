@@ -4,15 +4,12 @@ session_start();
 if (isset($_SESSION["Email"]) && $_SESSION["Password"]) {
  header("location: ./php/home.php");
 }
-
-//database connection configuration file
 ?>
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
 
     <title>Login</title>
 
@@ -22,17 +19,19 @@ if (isset($_SESSION["Email"]) && $_SESSION["Password"]) {
   </head>
 
   <body class="text-center">
-    <form class="form-signin" method="post" action="./php/login.php">
-      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-      
-      <label for="inputEmail" class="sr-only">Email address</label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" name="email" required autofocus>
+        <form class="form-signin" method="post" action="./php/login.php">
+          <h1 class="h3 mb-3 font-weight-normal">Please login</h1>
+          
+          <label for="inputEmail" class="sr-only">Email address</label>
+          <input type="email" id="inputEmail" class="form-control  mb-1" placeholder="Email address" name="email" required autofocus>
 
-      <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
-    
-      <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Login</button>
-    </form>
+          <label for="inputPassword" class="sr-only">Password</label>
+          <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
+        
+          <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Login</button>
+
+          <a href="./php/registration.php">Don't have an account?</a>
+        </form>    
   </body>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </html>
