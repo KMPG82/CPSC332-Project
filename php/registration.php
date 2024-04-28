@@ -20,12 +20,12 @@
                         <div class="row justify-content-center">
                             <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Registration</p>
-                                <form class="mx-1 mx-md-4" action="./register.php" type="post">
+                                <form class="mx-1 mx-md-4" action="./register.php" method="post">
 
                                 <div class="d-flex flex-row align-items-center mb-4 justify-content-center">
                                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                     <div data-mdb-input-init class="form-outline flex-fill mb-0 ">
-                                    <input type="text" id="form3Example1c" class="form-control" />
+                                    <input type="text" id="form3Example1c" class="form-control" name="firstName" required/>
                                     <label class="form-label" for="form3Example1c">First Name</label>
                                     </div>
                                 </div>
@@ -33,7 +33,7 @@
                                 <div class="d-flex flex-row align-items-center mb-4 justify-content-center">
                                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                     <div data-mdb-input-init class="form-outline flex-fill mb-0 ">
-                                    <input type="text" id="form3Example1c" class="form-control" />
+                                    <input type="text" id="form3Example1c" class="form-control" name="lastName" required/>
                                     <label class="form-label" for="form3Example1c">Last Name</label>
                                     </div>
                                 </div>
@@ -41,7 +41,7 @@
                                 <div class="d-flex flex-row align-items-center mb-4 justify-content-center">
                                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                                    <input type="email" id="form3Example3c" class="form-control" />
+                                    <input type="email" id="form3Example3c" class="form-control" name="email" required/>
                                     <label class="form-label" for="form3Example3c">Email</label>
                                     </div>
                                 </div>
@@ -49,8 +49,16 @@
                                 <div class="d-flex flex-row align-items-center mb-4 justify-content-center">
                                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                                    <input type="password" id="form3Example4c" class="form-control" />
+                                    <input type="password" id="form3Example4c" class="form-control" name="password" required />
                                     <label class="form-label" for="form3Example4c">Password</label>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex flex-row align-items-center mb-4 justify-content-center">
+                                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                    <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                                    <input type="text" id="form3Example4c" class="form-control" name="phoneNum" required />
+                                    <label class="form-label" for="form3Example4c">Phone number</label>
                                     </div>
                                 </div>
 
