@@ -62,11 +62,85 @@ $mysqli->close();
     <body> 
     <?php while($row = $result->fetch_assoc()) {
          ?>
-         <div>
-            <h1 class="display-4"><?php echo $row['Event_name']; ?></h1>
-            
-            <?php echo $row['State']; ?>
-            <?php echo $row['Type']; ?>
+         <div class=" border border-dark d-flex flex-column">
+            <h1 class="display-4 text-center"><?php echo $row['Event_name']; ?></h1>
+            <div class="text-center">
+                <div class="row row-cols-3">
+                    <div class="col pb-3 pt-3 overflow-auto">
+                        <b>Start_date</b><br>
+                        <?php echo $row['Start_date']; ?>
+                    </div>
+                    <div class="col pb-3 pt-3 overflow-auto">
+                        <b>Start_time</b><br>
+                        <?php echo $row['Start_time']; ?>
+                    </div>
+                    <div class="col pb-3 pt-3 overflow-auto">
+                        <b>Venue</b><br>
+                        <?php echo $row['Venue']; ?>
+                    </div>
+                    <div class="col pb-4 overflow-auto">
+                        <b>Abstract_deadline</b><br>
+                        <?php echo $row['Abstract_deadline']; ?>
+                    </div>
+                    <div class="col pb-4 overflow-auto">
+                        <b>Max_cap</b><br>
+                        <?php echo $row['Max_cap']; ?>
+                    </div>
+                    <div class="col pb-4 overflow-auto">
+                        <b>City</b><br>
+                        <?php echo $row['City']; ?>
+                    </div>
+                    <div class="col pb-4 overflow-auto">
+                        <b>State</b><br>
+                        <?php echo $row['State']; ?>
+                    </div>
+                    <div class="col pb-4 overflow-auto">
+                        <b>Street</b><br>
+                        <?php echo $row['Street']; ?>
+                    </div>
+                    <div class="col pb-4 overflow-auto">
+                        <b>Zip</b><br>
+                        <?php echo $row['Zip']; ?>
+                    </div>
+                    <div class="col pb-4 overflow-auto">
+                        <b>Status</b><br>
+                        <?php echo $row['Status']; ?>
+                    </div>
+                    <div class="col pb-4 overflow-auto">
+                        <b>End_date</b><br>
+                        <?php echo $row['End_date']; ?>
+                    </div>
+                    <div class="col pb-4 overflow-auto">
+                        <b>End_time</b><br>
+                        <?php echo $row['End_time']; ?>
+                    </div>
+                
+            </div>
+            <div class="row">
+            <div class="col pb-4 overflow-auto text-center">
+                        <b>Description</b><br>
+                        <?php echo $row['Description']; ?>
+                    </div>
+            </div>
+    
+
+        <!--     <ul class="list-group">
+                <li class="list-group-item"><b>Start_date: </b><?php echo $row['Start_date']; ?></li>
+                <li class="list-group-item"><b>Start_time: </b><?php echo $row['Start_time']; ?></li>
+                <li class="list-group-item"><b>Venue: </b><?php echo $row['Venue']; ?></li>
+                <li class="list-group-item"><b>Abstract_deadline: </b><?php echo $row['Abstract_deadline']; ?></li>
+                <li class="list-group-item"><b>Max_cap: </b><?php echo $row['Max_cap']; ?></li>
+                <li class="list-group-item"><b>Description: </b><?php echo $row['Description']; ?></li>
+                <li class="list-group-item"><b>City: </b><?php echo $row['City']; ?></li>
+                <li class="list-group-item"><b>State: </b><?php echo $row['State']; ?></li>
+                <li class="list-group-item"><b>Street: </b><?php echo $row['Street']; ?></li>
+                <li class="list-group-item"><b>Zip: </b><?php echo $row['Zip']; ?></li>
+                <li class="list-group-item"><b>Status: </b><?php echo $row['Status']; ?></li>
+                <li class="list-group-item"><b>End_date: </b><?php echo $row['End_date']; ?></li>
+                <li class="list-group-item"><b>End_time: </b><?php echo $row['End_time']; ?></li>
+
+            </ul> -->
+
         </div> 
         <?php } ?>
     </body>
