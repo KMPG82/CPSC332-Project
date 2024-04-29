@@ -19,7 +19,7 @@ if (isset($_POST["submit"])) {
     if ($row) { //if the user was found
         $_SESSION['Email'] = $row['Email'];
         $_SESSION['Password'] = $row['Password'];
-        $_SESSION['Fname'] = $row['F_name'];
+        $_SESSION['UserID'] = $row['User_id'];
 
         header("Location:home.php");
     } else {  //if the user was not found
