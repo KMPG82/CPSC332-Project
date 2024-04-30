@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS Academic_Event_Management_DB;
-CREATE DATABASE Academic_Event_Management_DB;
+DROP DATABASE IF EXISTS AEM;
+CREATE DATABASE AEM;
 
-USE Academic_Event_Management_DB;
+USE AEM;
 
 CREATE TABLE USER (
     User_id INT AUTO_INCREMENT,
@@ -30,8 +30,8 @@ CREATE TABLE EVENT (
     Start_time TIME NOT NULL,
     Venue VARCHAR(50) NOT NULL,
     Abstract_deadline DATE NOT NULL,
-    Pub_date DATE NOT NULL,
-    Pub_time TIME NOT NULL,
+    Pub_date DATE DEFAULT NULL,
+    Pub_time TIME DEFAULT NULL, 
     Max_cap INT NOT NULL,
     Description VARCHAR(250) NOT NULL,
     Event_name VARCHAR(50) NOT NULL, 
@@ -89,3 +89,56 @@ CREATE TABLE KEYNOTE_SPEAKERS(
     PRIMARY KEY (Fname, Lname, Event_id),
     FOREIGN KEY (Event_id) REFERENCES EVENT (Event_id)
 );
+
+-- Inserting universities with necessary information
+INSERT INTO UNIVERSITY (Inserted_at, Uni_name) VALUES
+(NOW(), 'Harvard University'),
+(NOW(), 'Stanford University'),
+(NOW(), 'Massachusetts Institute of Technology (MIT)'),
+(NOW(), 'California Institute of Technology (Caltech)'),
+(NOW(), 'University of Oxford');
+
+-- Inserting users with necessary information
+INSERT INTO USER (Inserted_at, Email, Password, F_name, L_name, P_number) VALUES
+(NOW(), 'john@example.com', 'password1', 'John', 'Doe', '1234567890'),
+(NOW(), 'jane@example.com', 'password2', 'Jane', 'Smith', '9876543210'),
+(NOW(), 'mike@example.com', 'password3', 'Mike', 'Johnson', '5551234567'),
+(NOW(), 'sara@example.com', 'password4', 'Sara', 'Williams', '7775554444'),
+(NOW(), 'chris@example.com', 'password5', 'Chris', 'Brown', '2223334444'),
+(NOW(), 'emily@example.com', 'password6', 'Emily', 'Davis', '9998887777'),
+(NOW(), 'david@example.com', 'password7', 'David', 'Martinez', '1112223333'),
+(NOW(), 'lisa@example.com', 'password8', 'Lisa', 'Anderson', '4445556666'),
+(NOW(), 'kevin@example.com', 'password9', 'Kevin', 'Thomas', '6667778888'),
+(NOW(), 'amanda@example.com', 'password10', 'Amanda', 'Garcia', '8889990000');
+
+-- Events for the first 10 users
+INSERT INTO EVENT (Inserted_at, Start_date, Start_time, Venue, Abstract_deadline, Max_cap, Description, Event_name, Type, City, State, Street, Zip, Status, End_date, End_time, Pub_date, Pub_time, User_id, Uni_id)
+VALUES
+(NOW(), '2024-05-01', '09:00:00', 'Conference Hall A', '2024-04-15', 100, 'Annual Science Conference', 'ScienceCon 2024', 'Conference', 'Boston', 'MA', '123 Main St', '02101', 'Active', '2024-05-03', '17:00:00', '2024-04-25', '12:00:00', 1, 1),
+(NOW(), '2024-05-01', '10:00:00', 'Lecture Hall B', '2024-04-15', 50, 'Workshop on Machine Learning', 'ML Workshop', 'Workshop', 'Cambridge', 'MA', '456 Elm St', '02139', 'Active', '2024-05-03', '16:00:00', '2024-04-25', '13:00:00', 1, 2),
+(NOW(), '2024-06-01', '09:30:00', 'Auditorium', '2024-05-15', 80, 'Annual Business Summit', 'BizSummit 2024', 'Conference', 'Stanford', 'CA', '789 Oak St', '94305', 'Active', '2024-06-03', '17:00:00', '2024-05-25', '14:00:00', 2, 2),
+(NOW(), '2024-06-01', '11:00:00', 'Seminar Room C', '2024-05-15', 60, 'Seminar on Artificial Intelligence', 'AI Seminar', 'Seminar', 'Palo Alto', 'CA', '101 Pine St', '94301', 'Active', '2024-06-03', '15:00:00', '2024-05-25', '15:00:00', 2, 1),
+(NOW(), '2024-07-01', '10:00:00', 'Conference Room A', '2024-06-15', 120, 'International Academic Conference', 'AcademicCon 2024', 'Conference', 'Boston', 'MA', '202 High St', '02101', 'Active', '2024-07-03', '18:00:00', '2024-06-25', '16:00:00', 3, 1),
+(NOW(), '2024-07-01', '09:00:00', 'Lecture Hall D', '2024-06-15', 70, 'Workshop on Data Science', 'DataSci Workshop', 'Workshop', 'Cambridge', 'MA', '303 Elm St', '02139', 'Active', '2024-07-03', '16:00:00', '2024-06-25', '17:00:00', 3, 2),
+(NOW(), '2024-08-01', '10:30:00', 'Auditorium', '2024-07-15', 90, 'International Symposium on Robotics', 'Robotics Symposium', 'Symposium', 'Cambridge', 'MA', '505 Oak St', '02138', 'Active', '2024-08-03', '18:00:00', '2024-07-25', '18:00:00', 4, 1),
+(NOW(), '2024-08-01', '13:00:00', 'Conference Room B', '2024-07-15', 50, 'Seminar on Quantum Computing', 'Quantum Seminar', 'Seminar', 'Palo Alto', 'CA', '707 Pine St', '94301', 'Active', '2024-08-03', '16:00:00', '2024-07-25', '19:00:00', 4, 2),
+(NOW(), '2024-09-01', '09:00:00', 'Lecture Hall A', '2024-08-15', 110, 'International Symposium on Neuroscience', 'Neuroscience Symposium', 'Symposium', 'Stanford', 'CA', '909 Elm St', '94305', 'Active', '2024-09-03', '17:00:00', '2024-08-25', '20:00:00', 5, 2),
+(NOW(), '2024-09-01', '11:30:00', 'Seminar Room B', '2024-08-15', 60, 'Workshop on Bioinformatics', 'Bioinformatics Workshop', 'Workshop', 'Boston', 'MA', '404 High St', '02101', 'Active', '2024-09-03', '15:00:00', '2024-08-25', '21:00:00', 5, 1);
+
+-- Events for the last 5 users
+INSERT INTO EVENT (Inserted_at, Start_date, Start_time, Venue, Abstract_deadline, Max_cap, Description, Event_name, Type, City, State, Street, Zip, Status, End_date, End_time, Pub_date, Pub_time, User_id, Uni_id)
+VALUES
+(NOW(), '2024-10-01', '09:00:00', 'Conference Hall B', '2024-09-15', 100, 'International Conference on Climate Change', 'ClimateCon 2024', 'Conference', 'Cambridge', 'MA', '111 Main St', '02139', 'Active', '2024-10-03', '17:00:00', '2024-09-25', '12:00:00', 6, 1),
+(NOW(), '2024-10-01', '10:30:00', 'Auditorium', '2024-09-15', 80, 'Seminar on Machine Learning Applications', 'ML Applications Seminar', 'Seminar', 'Palo Alto', 'CA', '222 Elm St', '94301', 'Active', '2024-10-03', '16:00:00', '2024-09-25', '13:00:00', 6, 2),
+(NOW(), '2024-11-01', '09:00:00', 'Conference Room A', '2024-10-15', 120, 'Annual Academic Symposium', 'AcademicSym 2024', 'Symposium', 'Stanford', 'CA', '333 Oak St', '94305', 'Active', '2024-11-03', '18:00:00', '2024-10-25', '14:00:00', 7, 2),
+(NOW(), '2024-11-01', '11:00:00', 'Lecture Hall C', '2024-10-15', 70, 'Workshop on Neural Networks', 'Neural Networks Workshop', 'Workshop', 'Boston', 'MA', '444 Pine St', '02101', 'Active', '2024-11-03', '16:00:00', '2024-10-25', '15:00:00', 7, 1),
+(NOW(), '2024-12-01', '10:00:00', 'Seminar Room D', '2024-11-15', 90, 'International Conference on Biotechnology', 'Biotech Conference', 'Conference', 'Palo Alto', 'CA', '555 High St', '94301', 'Active', '2024-12-03', '18:00:00', '2024-11-25', '16:00:00', 8, 1),
+(NOW(), '2024-12-01', '13:00:00', 'Conference Hall C', '2024-11-15', 60, 'Seminar on Cryptography', 'Cryptography Seminar', 'Seminar', 'Cambridge', 'MA', '666 Elm St', '02139', 'Active', '2024-12-03', '17:00:00', '2024-11-25', '17:00:00', 8, 2),
+(NOW(), '2025-01-01', '09:00:00', 'Auditorium', '2024-12-15', 100, 'International Symposium on Artificial Intelligence', 'AI Symposium', 'Symposium', 'Stanford', 'CA', '777 Main St', '94305', 'Active', '2025-01-03', '17:00:00', '2024-12-25', '18:00:00', 9, 2),
+(NOW(), '2025-01-01', '11:30:00', 'Conference Room B', '2024-12-15', 50, 'Workshop on Robotics', 'Robotics Workshop', 'Workshop', 'Palo Alto', 'CA', '888 Oak St', '94301', 'Active', '2025-01-03', '16:00:00', '2024-12-25', '19:00:00', 9, 1),
+(NOW(), '2025-02-01', '10:00:00', 'Seminar Room A', '2025-01-15', 110, 'International Conference on Neuroscience', 'Neuroscience Conference', 'Conference', 'Boston', 'MA', '999 Pine St', '02101', 'Active', '2025-02-03', '18:00:00', '2025-01-25', '20:00:00', 10, 1),
+(NOW(), '2025-02-01', '12:30:00', 'Lecture Hall E', '2025-01-15', 60, 'Seminar on Quantum Physics', 'Quantum Physics Seminar', 'Seminar', 'Cambridge', 'MA', '101 Elm St', '02139', 'Active', '2025-02-03', '16:00:00', '2025-01-25', '21:00:00', 10, 2);
+
+
+
+
