@@ -21,16 +21,12 @@ try {
     ';
 }
 
-
-
-
-
 //close connection
 $mysqli->close();
 ?>
 
 <!doctype html>
-<html>
+<html class="mx-0">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -59,89 +55,87 @@ $mysqli->close();
         </a>
     </nav>
 
-    <body> 
-    <?php while($row = $result->fetch_assoc()) {
-         ?>
-         <div class=" border border-dark d-flex flex-column">
-            <h1 class="display-4 text-center"><?php echo $row['Event_name']; ?></h1>
-            <div class="text-center">
-                <div class="row row-cols-3">
-                    <div class="col pb-3 pt-3 overflow-auto">
+    <body class="mx-0"> 
+        <a href="./createevent.php">
+            <button type="button" class="btn btn-primary btn-lg ml-4 mt-2 mb-2">Create an event</button>
+        </a>
+        <?php while($row = $result->fetch_assoc()) {
+            ?>
+            <div class="d-flex flex-column border-bottom border-top">
+                <h1 class="display-4 text-center"><?php echo $row['Event_name']; ?></h1>
+                <div class="d-flex justify-content-evenly text-center text-break">
+                    <div class="w-75">
                         <b>Start_date</b><br>
-                        <?php echo $row['Start_date']; ?>
+                        <?php echo $row['Start_date']; ?>           
                     </div>
-                    <div class="col pb-3 pt-3 overflow-auto">
+                    <div class="w-75">
                         <b>Start_time</b><br>
-                        <?php echo $row['Start_time']; ?>
+                        <p><?php echo $row['Start_time']; ?></p>
                     </div>
-                    <div class="col pb-3 pt-3 overflow-auto">
+                    <div class="w-75">
                         <b>Venue</b><br>
-                        <?php echo $row['Venue']; ?>
+                        <p><?php echo $row['Venue']; ?></p>
                     </div>
-                    <div class="col pb-4 overflow-auto">
-                        <b>Abstract_deadline</b><br>
-                        <?php echo $row['Abstract_deadline']; ?>
-                    </div>
-                    <div class="col pb-4 overflow-auto">
-                        <b>Max_cap</b><br>
-                        <?php echo $row['Max_cap']; ?>
-                    </div>
-                    <div class="col pb-4 overflow-auto">
-                        <b>City</b><br>
-                        <?php echo $row['City']; ?>
-                    </div>
-                    <div class="col pb-4 overflow-auto">
-                        <b>State</b><br>
-                        <?php echo $row['State']; ?>
-                    </div>
-                    <div class="col pb-4 overflow-auto">
-                        <b>Street</b><br>
-                        <?php echo $row['Street']; ?>
-                    </div>
-                    <div class="col pb-4 overflow-auto">
-                        <b>Zip</b><br>
-                        <?php echo $row['Zip']; ?>
-                    </div>
-                    <div class="col pb-4 overflow-auto">
-                        <b>Status</b><br>
-                        <?php echo $row['Status']; ?>
-                    </div>
-                    <div class="col pb-4 overflow-auto">
-                        <b>End_date</b><br>
-                        <?php echo $row['End_date']; ?>
-                    </div>
-                    <div class="col pb-4 overflow-auto">
-                        <b>End_time</b><br>
-                        <?php echo $row['End_time']; ?>
-                    </div>
+                </div>
                 
-            </div>
-            <div class="row">
-            <div class="col pb-4 overflow-auto text-center">
-                        <b>Description</b><br>
-                        <?php echo $row['Description']; ?>
+                <div class="d-flex justify-content-evenly text-center text-break">
+                    <div class="w-75">
+                        <b>Abstract_deadline</b><br>
+                        <p><?php echo $row['Abstract_deadline']; ?></p>              
                     </div>
+                    <div class="w-75">
+                        <b>Max_cap</b><br>
+                        <p><?php echo $row['Max_cap']; ?></p>
+                    </div>
+                    <div class="w-75">
+                        <b>City</b><br>
+                        <p><?php echo $row['City']; ?></p>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-evenly text-center text-break">
+                    <div class="w-75">
+                    <b>State</b><br>
+                    <p><?php echo $row['State']; ?></p>            
+                    </div>
+                    <div class="w-75">
+                        <b>Street</b><br>
+                        <p><?php echo $row['Street']; ?></p>  
+                    </div>
+                    <div class="w-75">
+                        <b>Zip</b><br>
+                        <p><?php echo $row['Zip']; ?></p>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-evenly text-center text-break">
+                    <div class="w-75">
+                        <b>Status</b><br>
+                        <p><?php echo $row['Status']; ?></p>                          
+                    </div>
+                    <div class="w-75">
+                        <b>End_date</b><br>
+                        <p><?php echo $row['End_date']; ?></p>
+                    </div>
+                    <div class="w-75">
+                        <b>End_time</b><br>
+                        <p><?php echo $row['End_time']; ?></p>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-evenly text-center text-break">
+                    <div class="w-100">
+                        <b>Description</b><br>
+                        <p><?php echo $row['Description']; ?></p>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-evenly text-center text-break">
+                    <div class="w-100">
+                        <?php echo ("<a href='./editevent.php?Event_id=" .$row['Event_id']. "'><button type='button' class='btn btn-success mt-2 mb-3'>Edit event</button></a>") ?>
+                    </div>
+                </div>
             </div>
-    
-
-        <!--     <ul class="list-group">
-                <li class="list-group-item"><b>Start_date: </b><?php echo $row['Start_date']; ?></li>
-                <li class="list-group-item"><b>Start_time: </b><?php echo $row['Start_time']; ?></li>
-                <li class="list-group-item"><b>Venue: </b><?php echo $row['Venue']; ?></li>
-                <li class="list-group-item"><b>Abstract_deadline: </b><?php echo $row['Abstract_deadline']; ?></li>
-                <li class="list-group-item"><b>Max_cap: </b><?php echo $row['Max_cap']; ?></li>
-                <li class="list-group-item"><b>Description: </b><?php echo $row['Description']; ?></li>
-                <li class="list-group-item"><b>City: </b><?php echo $row['City']; ?></li>
-                <li class="list-group-item"><b>State: </b><?php echo $row['State']; ?></li>
-                <li class="list-group-item"><b>Street: </b><?php echo $row['Street']; ?></li>
-                <li class="list-group-item"><b>Zip: </b><?php echo $row['Zip']; ?></li>
-                <li class="list-group-item"><b>Status: </b><?php echo $row['Status']; ?></li>
-                <li class="list-group-item"><b>End_date: </b><?php echo $row['End_date']; ?></li>
-                <li class="list-group-item"><b>End_time: </b><?php echo $row['End_time']; ?></li>
-
-            </ul> -->
-
-        </div> 
         <?php } ?>
     </body>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
