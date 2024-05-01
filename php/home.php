@@ -95,8 +95,8 @@ $mysqli->close();
 
                 <div class="d-flex justify-content-evenly text-center text-break">
                     <div class="w-75">
-                    <b>State</b><br>
-                    <p><?php echo $row['State']; ?></p>            
+                        <b>State</b><br>
+                        <p><?php echo $row['State']; ?></p>            
                     </div>
                     <div class="w-75">
                         <b>Street</b><br>
