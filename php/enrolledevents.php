@@ -126,6 +126,10 @@ try {
                         <p><?php echo $row['Type']; ?></p>                          
                     </div>
                     <div class="w-75">
+                        <b>Description</b><br>
+                        <p><?php echo $row['Description']; ?></p>
+                    </div>
+                    <div class="w-75">
                         <b>University</b><br>
                         <p><?php 
                         $university=$row['Uni_id']; 
@@ -138,12 +142,45 @@ try {
                 </div>
 
                 <div class="d-flex justify-content-evenly text-center text-break">
-                    <div class="w-100">
-                        <b>Description</b><br>
-                        <p><?php echo $row['Description']; ?></p>
+                    <div class="w-75">
+                        <b>Sponsors</b><br>
+                        <ul class="list-unstyled">
+                            <?php 
+                                $event=$row['Event_id']; 
+                                $query1 = "select * from sponsors where Event_id='$event'";
+                                $sponsorsArray = mysqli_query($mysqli, $query1);
+                                while($presenter = $sponsorsArray->fetch_assoc()) {?>
+                                        <li class="text-center"><?php echo $presenter['Spon_name'] ?></li>
+                            <?php }?>
+                        </ul>    
+                    </div>
+
+                    <div class="w-75">
+                        <b>Presenters</b><br>
+                        <ul class="list-unstyled">
+                            <?php 
+                                $event=$row['Event_id']; 
+                                $query2 = "select * from presenters where Event_id='$event'";
+                                $presentersArray = mysqli_query($mysqli, $query2);
+                                while($presenter = $presentersArray->fetch_assoc()) {?>
+                                        <li class="text-center"><?php echo $presenter['Fname'] ?> <?php echo $presenter['Lname'] ?> </li>
+                            <?php }?>
+                        </ul>    
+                    </div>
+
+                    <div class="w-75">
+                        <b>Keynote speakers</b><br>
+                        <ul class="list-unstyled">
+                            <?php 
+                                $event=$row['Event_id']; 
+                                $query3 = "select * from keynote_speakers where Event_id='$event'";
+                                $keynoteArray = mysqli_query($mysqli, $query3);
+                                while($keynote = $keynoteArray->fetch_assoc()) {?>
+                                        <li class="text-center"><?php echo $keynote['Fname'] ?> <?php echo $keynote['Lname'] ?></li>
+                            <?php }?>
+                        </ul>    
                     </div>
                 </div>
-
                 <div class="d-flex justify-content-evenly text-center text-break">
                     <div class="w-100">
                         <?php echo ("<a href='./unenrollevent.php?Event_id=" .$row['Event_id']. "'><button type='button' class='btn btn-warning mt-2 mb-3'>Unenroll from this event</button></a>") ?>
