@@ -17,10 +17,19 @@ if (isset($_POST["register"]))
 
     try {
         $result = mysqli_query($mysqli, $sql);
-        header("location: ./home.php");
+
+        $sql = "select * from user where email='$email' and password='$password'";
+
+        $result = mysqli_query($mysqli, $sql);
+
+        //convert result from query to array
+        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
         $_SESSION['Email'] = $email;
         $_SESSION['Password'] = $password;
-        $_SESSION['Fname'] = $firstName;
+        $_SESSION['UserID'] = $row['User_id'];
+        header("location: ./home.php");
+
     } catch (mysqli_sql_exception $e) {
         echo '
         <script>
