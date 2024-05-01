@@ -22,10 +22,6 @@ if (isset($_POST["create"]))
     $endTime = $_POST['endTime'];
     $description = $_POST['description'];
     $type = $_POST['type'];
-    $presenter1first = $_POST['presenter1first'];
-    $presenter1last = $_POST['presenter1last'];
-    $keynote1first = $_POST['keynote1first'];
-    $keynote1last = $_POST['keynote1last'];
     $university = $_POST['university'];
     //create the query
     $sql = "insert into event (Start_date, Start_time, Venue, Abstract_deadline, Max_cap, Description, Event_name, Type, City, State, Street, Zip, Status, End_date, End_time, User_id, Uni_id)
@@ -34,88 +30,111 @@ if (isset($_POST["create"]))
     try {
         $result = mysqli_query($mysqli, $sql);
 
+        if($result){
+            $event_id = mysqli_insert_id($mysqli);         
+            
+            $presenter1first = $_POST['presenter1first'];
+            $presenter1last = $_POST['presenter1last'];
+            $keynote1first = $_POST['keynote1first'];
+            $keynote1last = $_POST['keynote1last'];
+
+            $sql = "insert into presenters (Fname, Lname, Event_id)
+            VALUES ('$presenter1first', '$presenter1last', $event_id)";
+
+            $result = mysqli_query($mysqli, $sql);
+
+            $sql = "insert into keynote_speakers (Fname, Lname, Event_id)
+            VALUES ('$keynote1first', '$keynote1last', $event_id)";
+
+            $result = mysqli_query($mysqli, $sql);
+
+            if($_POST['sponsor1'])
+            {
+                $sponsor1 = $_POST['sponsor1'];
+
+                $sql = "insert into sponsors (Spon_name, Event_id)
+                VALUES ('$sponsor1', $event_id)";
+
+                $result = mysqli_query($mysqli, $sql);
+            }
+
+            if($_POST['sponsor2'])
+            {
+                $sponsor2 = $_POST['sponsor2'];
+
+                $sql = "insert into sponsors (Spon_name, Event_id)
+                VALUES ('$sponsor2', $event_id)";
+
+                $result = mysqli_query($mysqli, $sql);
+            }
+
+            if($_POST['sponsor3'])
+            {
+                $sponsor3 = $_POST['sponsor3'];
+
+                $sql = "insert into sponsors (Spon_name, Event_id)
+                VALUES ('$sponsor3', $event_id)";
+
+                $result = mysqli_query($mysqli, $sql);
+            }
+
+            if($_POST['presenter2first'] && $_POST['presenter2last'])
+            {
+                $presenter2first = $_POST['presenter2first'];
+                $presenter2last = $_POST['presenter2last'];
+
+                $sql = "insert into presenters (Fname, Lname, Event_id)
+                VALUES ('$presenter2first', '$presenter2last', $event_id)";
+
+                $result = mysqli_query($mysqli, $sql);
+            }
+
+            if($_POST['presenter3first'] && $_POST['presenter3last'])
+            {
+                $presenter3first = $_POST['presenter3first'];
+                $presenter3last = $_POST['presenter3last'];
+
+                $sql = "insert into presenters (Fname, Lname, Event_id)
+                VALUES ('$presenter3first', '$presenter3last', $event_id)";
+
+                $result = mysqli_query($mysqli, $sql);
+            }
+
+            if($_POST['keynote2first'] && $_POST['keynote2last'])
+            {
+                $keynote2first = $_POST['keynote2first'];
+                $keynote2last = $_POST['keynote2last'];
+
+                $sql = "insert into keynote_speakers (Fname, Lname, Event_id)
+                VALUES ('$keynote2first', '$keynote2last', $event_id)";
+
+                $result = mysqli_query($mysqli, $sql);
+            }
+
+            if($_POST['keynote3first'] && $_POST['keynote3last'])
+            {
+                $keynote3first = $_POST['keynote3first'];
+                $keynote3last = $_POST['keynote3last'];
+
+                $sql = "insert into keynote_speakers (Fname, Lname, Event_id)
+                VALUES ('$keynote3first', '$keynote3last', $event_id)";
+
+                $result = mysqli_query($mysqli, $sql);
+            }
+        }
+
         header("location: ./home.php");
 
     } catch (mysqli_sql_exception $e) {
         echo '
         <script>
             window.location.href="./createevent.php";
-            alert("Failed to create event. Please try again'.$e->getMessage().'")
+            alert("Failed to create event. Please try again.'.$e->getMessage().'")
         </script>
         ';
         } 
-
 }
+
+//close connection
+$mysqli->close();
 ?>
-
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <?php        echo $eventName;
-  ?>
-  <br>
-    <?php        echo $startDate;
-  ?>
-    <br>
-
-    <?php          echo $startTime;
-?>
-  <br>
-
-    <?php         echo $venue;
- ?>
-   <br>
-
-    <?php         echo $abstractDeadline;
- ?>
-   <br>
-
-    <?php        echo $max;
-  ?>
-    <br>
-
-    <?php         echo $city;
- ?>  <br>
-
-    <?php        echo $state;
-  ?>  <br>
-
-    <?php         echo $street;
- ?>  <br>
-
-    <?php         echo $zip;
- ?>  <br>
-
-    <?php         echo $status;
- ?>  <br>
-
-    <?php        echo $endDate;
-  ?>  <br>
-
-    <?php        echo $endTime;
-  ?>  <br>
-
-    <?php        echo $description;
-  ?>  <br>
-
-    <?php         echo $type;
- ?>  <br>
-    <?php         echo $presenter1first;
-    echo $presenter1last;
- ?>  <br>
-    <?php         echo $keynote1first;
-    echo $keynote1last;
- ?>  <br>
-   <?php        echo $university;
-  ?>  <br>
-  <?php        echo $userId;
-  ?>  <br>
-
-    
-  
-</body>
-</html>

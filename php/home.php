@@ -129,9 +129,9 @@ try {
                         <b>University</b><br>
                         <p><?php 
                         $university=$row['Uni_id']; 
-                        $sql = "select Uni_name from university where Uni_id='$university'";
-                        $result = mysqli_query($mysqli, $sql);
-                        $uni = $result->fetch_assoc();
+                        $query = "select Uni_name from university where Uni_id='$university'";
+                        $fetch = mysqli_query($mysqli, $query);
+                        $uni = $fetch->fetch_assoc();
                         echo $uni['Uni_name']; 
                         ?></p>
                     </div>
