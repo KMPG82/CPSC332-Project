@@ -36,7 +36,7 @@ if (isset($_POST["update"])) {
         echo '
         <script>
             window.location.href="./home.php";
-            alert('.$e.')
+            alert("Update of selected event failed. Please try again.")
         </script>
         ';
     }

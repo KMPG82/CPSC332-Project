@@ -178,8 +178,11 @@ try {
                 </div>
 
                 <div class="d-flex justify-content-evenly text-center text-break">
-                    <div class="w-100">
+                    <div class="w-75">
                         <?php echo ("<a href='./editevent.php?Event_id=" .$row['Event_id']. "'><button type='button' class='btn btn-success mt-2 mb-3'>Edit event</button></a>") ?>
+                    </div>
+                    <div class="w-75">
+                        <?php echo ("<a href='./deleteevent.php?Event_id=" .$row['Event_id']. "'><button type='button' class='btn btn-warning mt-2 mb-3'>Delete event</button></a>") ?>
                     </div>
                 </div>
             </div>
@@ -188,7 +191,6 @@ try {
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 </html>
-
 <?php
 //close connection
 $mysqli->close();

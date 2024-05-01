@@ -7,11 +7,12 @@ include("connection.php");
 
 $userId = $_SESSION["UserID"];
 $eventId = $_GET['Event_id'];
+$_SESSION['eventId'] = $eventId;
+
 
 //create the query
 $sql = "select * from event where Event_id='$eventId'";
 $query = "select * from university";
-$_SESSION['eventId'] = $eventId;
 
 try {
     //execute the query
@@ -191,7 +192,7 @@ try {
                     </div>
                 </div>
                 <div class="d-flex justify-content-evenly text-center text-break mb-4">
-                <div class="w-75">
+                    <div class="w-75">
                         <b>Pub_date</b><br>
                         <input value="<?php echo $event['Pub_date']; ?>" required type="date" name="pubDate"class="text-center">                                   
                     </div>

@@ -58,7 +58,7 @@ CREATE TABLE ENROLLED_BY(
     
     PRIMARY KEY (User_id, Event_id),
     FOREIGN KEY (User_id) REFERENCES USER (User_id),
-    FOREIGN KEY (Event_id) REFERENCES EVENT (Event_id)
+    FOREIGN KEY (Event_id) REFERENCES EVENT (Event_id) ON DELETE CASCADE
 );
 
 CREATE TABLE PRESENTERS(
@@ -68,7 +68,7 @@ CREATE TABLE PRESENTERS(
     Inserted_at TIMESTAMP NOT NULL,
     
     PRIMARY KEY (Fname, Lname, Event_id),
-    FOREIGN KEY (Event_id) REFERENCES EVENT (Event_id)
+    FOREIGN KEY (Event_id) REFERENCES EVENT (Event_id) ON DELETE CASCADE
 );
 
 CREATE TABLE SPONSORS(
@@ -77,7 +77,7 @@ CREATE TABLE SPONSORS(
     Inserted_at TIMESTAMP NOT NULL,
     
     PRIMARY KEY (Spon_name, Event_id),
-    FOREIGN KEY (Event_id) REFERENCES EVENT (Event_id)
+    FOREIGN KEY (Event_id) REFERENCES EVENT (Event_id) ON DELETE CASCADE
 );
 
 CREATE TABLE KEYNOTE_SPEAKERS(
@@ -87,7 +87,7 @@ CREATE TABLE KEYNOTE_SPEAKERS(
     Inserted_at TIMESTAMP NOT NULL,
     
     PRIMARY KEY (Fname, Lname, Event_id),
-    FOREIGN KEY (Event_id) REFERENCES EVENT (Event_id)
+    FOREIGN KEY (Event_id) REFERENCES EVENT (Event_id) ON DELETE CASCADE
 );
 
 -- Inserting universities with necessary information
