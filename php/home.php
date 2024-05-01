@@ -10,9 +10,6 @@ $sql = "select * from event where User_id='$userId'";
 try {
     //execute the query
     $result = mysqli_query($mysqli, $sql);
-
-    //convert result from query to array
-    //$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 } catch (Exception $e) {
     echo '
     <script>
@@ -43,7 +40,7 @@ try {
             <div class="navbar-nav">
             <a class="nav-item nav-link active mr-3" href="./home.php">Your Events <span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link active mr-3" href="./enrolledevents.php">Your Enrolled Events</a>
-            <a class="nav-item nav-link active" href="./activeevents.php">Events</a>
+            <a class="nav-item nav-link active" href="./activeevents.php">Active Events</a>
             </div>
         </div>
         

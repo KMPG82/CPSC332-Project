@@ -5,14 +5,11 @@ include("connection.php");
 $userId = $_SESSION["UserID"];
 
 //create the query
-$sql = "select * from event where Status='active' and User_id!='$userId' and Pub_date!=NULL and Pub_time!=NULL";
+$sql = "select * from event where Status='Active' and User_id != '$userId' and Pub_date != 'null' and Pub_time != 'null'";
 
 try {
     //execute the query
     $result = mysqli_query($mysqli, $sql);
-
-    //convert result from query to array
-    //$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 } catch (Exception $e) {
     echo '
     <script>
@@ -20,13 +17,6 @@ try {
     </script>
     ';
 }
-
-
-
-
-
-//close connection
-$mysqli->close();
 ?>
 
 <!doctype html>
@@ -50,7 +40,7 @@ $mysqli->close();
             <div class="navbar-nav">
             <a class="nav-item nav-link active mr-3" href="./home.php">Your Events <span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link active mr-3" href="./enrolledevents.php">Your Enrolled Events</a>
-            <a class="nav-item nav-link active" href="./activeevents.php">Events</a>
+            <a class="nav-item nav-link active" href="./activeevents.php">Active Events</a>
             </div>
         </div>
         
@@ -125,6 +115,23 @@ $mysqli->close();
                 </div>
 
                 <div class="d-flex justify-content-evenly text-center text-break">
+                    <div class="w-75">
+                        <b>Type</b><br>
+                        <p><?php echo $row['Type']; ?></p>                          
+                    </div>
+                    <div class="w-75">
+                        <b>University</b><br>
+                        <p><?php 
+                        $university=$row['Uni_id']; 
+                        $query = "select Uni_name from university where Uni_id='$university'";
+                        $fetch = mysqli_query($mysqli, $query);
+                        $uni = $fetch->fetch_assoc();
+                        echo $uni['Uni_name']; 
+                        ?></p>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-evenly text-center text-break">
                     <div class="w-100">
                         <b>Description</b><br>
                         <p><?php echo $row['Description']; ?></p>
@@ -142,3 +149,7 @@ $mysqli->close();
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 </html>
+<?php
+//close connection
+$mysqli->close();
+?>
