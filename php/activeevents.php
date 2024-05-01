@@ -5,7 +5,7 @@ include("connection.php");
 $userId = $_SESSION["UserID"];
 
 //create the query
-$sql = "select * from event where Status='active' and User_id!='$userId'";
+$sql = "select * from event where Status='active' and User_id!='$userId' and Pub_date!=NULL and Pub_time!=NULL";
 
 try {
     //execute the query
@@ -16,7 +16,7 @@ try {
 } catch (Exception $e) {
     echo '
     <script>
-        alert("Retrieval of your created events failed. Please try again.")
+        alert("Retrieval of active events failed. Please try again.")
     </script>
     ';
 }

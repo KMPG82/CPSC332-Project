@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("connection.php");
 
 $userId = $_SESSION["UserID"];
 
@@ -20,36 +21,30 @@ if (isset($_POST["create"]))
     $endDate = $_POST['endDate'];
     $endTime = $_POST['endTime'];
     $description = $_POST['description'];
-
-    echo $eventName;
-
+    $type = $_POST['type'];
+    $presenter1first = $_POST['presenter1first'];
+    $presenter1last = $_POST['presenter1last'];
+    $keynote1first = $_POST['keynote1first'];
+    $keynote1last = $_POST['keynote1last'];
+    $university = $_POST['university'];
     //create the query
-    $sql = "insert into user(Email, Password, F_name, L_name, P_number)
-    VALUES ('$email','$password','$firstName','$lastName','$phoneNum')";
+    $sql = "insert into event (Start_date, Start_time, Venue, Abstract_deadline, Max_cap, Description, Event_name, Type, City, State, Street, Zip, Status, End_date, End_time, User_id, Uni_id)
+    VALUES ('$startDate','$startTime','$venue','$abstractDeadline','$max','$description','$eventName','$type','$city','$state','$street','$zip','$status','$endDate','$endTime','$userId','$university')";
 
-  /*   try {
+    try {
         $result = mysqli_query($mysqli, $sql);
 
-        $sql = "select * from user where email='$email' and password='$password'";
-
-        $result = mysqli_query($mysqli, $sql);
-
-        //convert result from query to array
-        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-
-        $_SESSION['Email'] = $email;
-        $_SESSION['Password'] = $password;
-        $_SESSION['UserID'] = $row['User_id'];
         header("location: ./home.php");
 
     } catch (mysqli_sql_exception $e) {
         echo '
         <script>
-            window.location.href="./registration.php";
-            alert("Failed to register. An account is already registered with this email or password. '.$e->getMessage().'")
+            window.location.href="./createevent.php";
+            alert("Failed to create event. Please try again'.$e->getMessage().'")
         </script>
         ';
-        } */
+        } 
+
 }
 ?>
 
@@ -60,6 +55,67 @@ if (isset($_POST["create"]))
     <title>Document</title>
 </head>
 <body>
-    <?php echo $eventName ?>;
+    <?php        echo $eventName;
+  ?>
+  <br>
+    <?php        echo $startDate;
+  ?>
+    <br>
+
+    <?php          echo $startTime;
+?>
+  <br>
+
+    <?php         echo $venue;
+ ?>
+   <br>
+
+    <?php         echo $abstractDeadline;
+ ?>
+   <br>
+
+    <?php        echo $max;
+  ?>
+    <br>
+
+    <?php         echo $city;
+ ?>  <br>
+
+    <?php        echo $state;
+  ?>  <br>
+
+    <?php         echo $street;
+ ?>  <br>
+
+    <?php         echo $zip;
+ ?>  <br>
+
+    <?php         echo $status;
+ ?>  <br>
+
+    <?php        echo $endDate;
+  ?>  <br>
+
+    <?php        echo $endTime;
+  ?>  <br>
+
+    <?php        echo $description;
+  ?>  <br>
+
+    <?php         echo $type;
+ ?>  <br>
+    <?php         echo $presenter1first;
+    echo $presenter1last;
+ ?>  <br>
+    <?php         echo $keynote1first;
+    echo $keynote1last;
+ ?>  <br>
+   <?php        echo $university;
+  ?>  <br>
+  <?php        echo $userId;
+  ?>  <br>
+
+    
+  
 </body>
 </html>
