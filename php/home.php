@@ -38,9 +38,10 @@ try {
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-            <a class="nav-item nav-link active mr-3" href="./home.php">Your Events <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link active mr-3" href="./enrolledevents.php">Your Enrolled Events</a>
-            <a class="nav-item nav-link active" href="./activeevents.php">Active Events</a>
+                <a class="nav-item nav-link active mr-3" href="./home.php">Your Events <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link active mr-3" href="./enrolledevents.php">Your Enrolled Events</a>
+                <a class="nav-item nav-link active mr-3" href="./activeevents.php">Active Events</a>
+                <a class="nav-item nav-link active" href="./allevents.php">All Events</a>
             </div>
         </div>
         

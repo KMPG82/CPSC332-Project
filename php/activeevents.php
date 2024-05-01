@@ -4,19 +4,26 @@ include("connection.php");
 
 $userId = $_SESSION["UserID"];
 
-//create the query
-$sql = "select * from event where Status='Active' and User_id != '$userId' and Pub_date != 'null' and Pub_time != 'null'";
+if (isset($_POST['search']) && !empty($_POST['search'])) {
+    $search = $_POST['search'];
+    //create the query for search
+    $sql = "select * from event where Status='Active' and Pub_date != 'null' and Pub_time != 'null' and Event_name = '$search'";
+} else {
+    //create the query to fetch all active events
+    $sql = "select * from event where Status='Active' and Pub_date != 'null' and Pub_time != 'null'";
+}
 
 try {
     //execute the query
     $result = mysqli_query($mysqli, $sql);
 } catch (Exception $e) {
     echo '
-    <script>
-        alert("Retrieval of active events failed. Please try again.")
-    </script>
-    ';
+<script>
+    alert("Retrieval of active events failed. Please try again.")
+</script>
+';
 }
+
 ?>
 
 <!doctype html>
@@ -38,11 +45,17 @@ try {
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-            <a class="nav-item nav-link active mr-3" href="./home.php">Your Events <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link active mr-3" href="./enrolledevents.php">Your Enrolled Events</a>
-            <a class="nav-item nav-link active" href="./activeevents.php">Active Events</a>
+                <a class="nav-item nav-link active mr-3" href="./home.php">Your Events <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link active mr-3" href="./enrolledevents.php">Your Enrolled Events</a>
+                <a class="nav-item nav-link active mr-3" href="./activeevents.php">Active Events</a>
+                <a class="nav-item nav-link active" href="./allevents.php">All Events</a>
             </div>
         </div>
+
+        <form class="form-inline mr-5"  action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" name='search' aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Enter event name</button>
+        </form>
         
         <a href="./logout.php">
             <button type="button" class="btn btn-danger" name="logout">Logout</button>
@@ -140,7 +153,11 @@ try {
 
                 <div class="d-flex justify-content-evenly text-center text-break">
                     <div class="w-100">
-                        <?php echo ("<a href='./enrollevent.php?Event_id=" .$row['Event_id']. "'><button type='button' class='btn btn-info mt-2 mb-3'>Enroll for this event</button></a>") ?>
+                        <?php 
+                        if($userId !== $row['User_id']){
+                            echo ("<a href='./enrollevent.php?Event_id=" . $row['Event_id'] . "'><button type='button' class='btn btn-info mt-2 mb-3'>Enroll for this event</button></a>");
+                        }
+                        ?>
                     </div>
                 </div>
             </div>

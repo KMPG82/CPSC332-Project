@@ -21,7 +21,7 @@ try {
     echo '
     <script>
         window.location.href="./activeevents.php";
-        alert("Failed to enroll for event. Please check if you are already enrolled for this event.'.$e->getMessage().'")
+        alert("Failed to enroll for event. Please check if you are already enrolled for this event.")
     </script>
     ';
     } 
