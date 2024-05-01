@@ -1,5 +1,4 @@
 <?php
-//get ssn from query string
 if(!isset($_GET['Event_id'])) {
     header("location:./enrolledevents.php");
 }
@@ -19,7 +18,7 @@ try {
 } catch (mysqli_sql_exception $e) {
     echo '
     <script>
-        window.location.href="./createevent.php";
+        window.location.href="./enrolledevents.php";
         alert("Failed to unenroll from event. Please try again.'.$e->getMessage().'")
     </script>
     ';

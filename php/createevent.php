@@ -57,7 +57,7 @@ $mysqli->close();
    
     <body class="mx-0"> 
         <form action="./eventcreation.php" method='post'>
-        <button type="submit" name="create" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg ml-4 mt-2 mb-2">Create</button>
+            <button type="submit" name="create" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg ml-4 mt-2 mb-2">Done</button>
 
             <div class="d-flex flex-column border-bottom border-top">
                 <h1 class="display-4 text-center mt-4"><input required type="text" name="eventName"class="text-center" placeholder="Event Name"></h1>
