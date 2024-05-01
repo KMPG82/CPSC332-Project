@@ -28,8 +28,6 @@ try {
         <title>Home</title>
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-        <link href="../css/styles.css" rel="stylesheet">
-
     </head>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="./home.php">AEM</a>
@@ -124,21 +122,58 @@ try {
                         <p><?php echo $row['Type']; ?></p>                          
                     </div>
                     <div class="w-75">
+                        <b>Description</b><br>
+                        <p><?php echo $row['Description']; ?></p>
+                    </div>
+                    <div class="w-75">
                         <b>University</b><br>
                         <p><?php 
-                        $university=$row['Uni_id']; 
-                        $query = "select Uni_name from university where Uni_id='$university'";
-                        $fetch = mysqli_query($mysqli, $query);
-                        $uni = $fetch->fetch_assoc();
-                        echo $uni['Uni_name']; 
+                            $university=$row['Uni_id']; 
+                            $query = "select Uni_name from university where Uni_id='$university'";
+                            $fetch = mysqli_query($mysqli, $query);
+                            $uni = $fetch->fetch_assoc();
+                            echo $uni['Uni_name']; 
                         ?></p>
                     </div>
                 </div>
-
                 <div class="d-flex justify-content-evenly text-center text-break">
-                    <div class="w-100">
-                        <b>Description</b><br>
-                        <p><?php echo $row['Description']; ?></p>
+                    <div class="w-75">
+                        <b>Sponsors</b><br>
+                        <ul class="list-unstyled">
+                            <?php 
+                                $event=$row['Event_id']; 
+                                $query1 = "select * from sponsors where Event_id='$event'";
+                                $sponsorsArray = mysqli_query($mysqli, $query1);
+                                while($presenter = $sponsorsArray->fetch_assoc()) {?>
+                                        <li class="text-center"><?php echo $presenter['Spon_name'] ?></li>
+                            <?php }?>
+                        </ul>    
+                    </div>
+
+                    <div class="w-75">
+                        <b>Presenters</b><br>
+                        <ul class="list-unstyled">
+                            <?php 
+                                $event=$row['Event_id']; 
+                                $query2 = "select * from presenters where Event_id='$event'";
+                                $presentersArray = mysqli_query($mysqli, $query2);
+                                while($presenter = $presentersArray->fetch_assoc()) {?>
+                                        <li class="text-center"><?php echo $presenter['Fname'] ?> <?php echo $presenter['Lname'] ?> </li>
+                            <?php }?>
+                        </ul>    
+                    </div>
+
+                    <div class="w-75">
+                        <b>Keynote speakers</b><br>
+                        <ul class="list-unstyled">
+                            <?php 
+                                $event=$row['Event_id']; 
+                                $query3 = "select * from keynote_speakers where Event_id='$event'";
+                                $keynoteArray = mysqli_query($mysqli, $query3);
+                                while($keynote = $keynoteArray->fetch_assoc()) {?>
+                                        <li class="text-center"><?php echo $keynote['Fname'] ?> <?php echo $keynote['Lname'] ?></li>
+                            <?php }?>
+                        </ul>    
                     </div>
                 </div>
 
