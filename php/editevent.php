@@ -72,11 +72,11 @@ try {
 
                 <div class="d-flex justify-content-evenly text-center text-break mb-4">
                     <div class="w-75">
-                        <b>Start_date</b><br>
+                        <b>Start date</b><br>
                         <input value="<?php echo $event['Start_date']; ?>" required type="date" name="startDate"class="text-center">                                   
                     </div>
                     <div class="w-75">
-                        <b>Start_time</b><br>
+                        <b>Start time</b><br>
                         <input value="<?php echo $event['Start_time']; ?>" required type="time" name="startTime"class="text-center">                          
                     </div>
                     <div class="w-75">
@@ -87,11 +87,11 @@ try {
                 
                 <div class="d-flex justify-content-evenly text-center text-break mb-4">
                     <div class="w-75">
-                        <b>Abstract_deadline</b><br>
+                        <b>Abstract deadline</b><br>
                         <input value="<?php echo $event['Abstract_deadline']; ?>" required type="date" name="abstractDeadline"class="text-center">               
                     </div>
                     <div class="w-75">
-                        <b>Max_cap</b><br>
+                        <b>Max cap</b><br>
                         <input value="<?php echo $event['Max_cap']; ?>" required type="text" name="max"class="text-center"> 
                     </div>
                     <div class="w-75">
@@ -138,11 +138,11 @@ try {
                         </select>                   
                     </div>
                     <div class="w-75">
-                        <b>End_date</b><br>
+                        <b>End date</b><br>
                         <input value="<?php echo $event['End_date']; ?>" required type="date" name="endDate"class="text-center"> 
                     </div>
                     <div class="w-75">
-                        <b>End_time</b><br>
+                        <b>End time</b><br>
                         <input value="<?php echo $event['End_time']; ?>" required type="time" name="endTime"class="text-center"> 
                     </div>
                 </div>
@@ -193,11 +193,11 @@ try {
                 </div>
                 <div class="d-flex justify-content-evenly text-center text-break mb-4">
                     <div class="w-75">
-                        <b>Pub_date</b><br>
+                        <b>Publish date</b><br>
                         <input value="<?php echo $event['Pub_date']; ?>" required type="date" name="pubDate"class="text-center">                                   
                     </div>
                     <div class="w-75">
-                        <b>Pub_time</b><br>
+                        <b>Publish time</b><br>
                         <input value="<?php echo $event['Pub_time']; ?>" required type="time" name="pubTime"class="text-center">                          
                     </div>
                 </div>

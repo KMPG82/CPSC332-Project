@@ -69,11 +69,11 @@ try {
                 <h1 class="display-4 text-center"><?php echo $row['Event_name']; ?></h1>
                 <div class="d-flex justify-content-evenly text-center text-break">
                     <div class="w-75">
-                        <b>Start_date</b><br>
+                        <b>Start date</b><br>
                         <?php echo $row['Start_date']; ?>           
                     </div>
                     <div class="w-75">
-                        <b>Start_time</b><br>
+                        <b>Start time</b><br>
                         <p><?php echo $row['Start_time']; ?></p>
                     </div>
                     <div class="w-75">
@@ -84,11 +84,11 @@ try {
                 
                 <div class="d-flex justify-content-evenly text-center text-break">
                     <div class="w-75">
-                        <b>Abstract_deadline</b><br>
+                        <b>Abstract deadline</b><br>
                         <p><?php echo $row['Abstract_deadline']; ?></p>              
                     </div>
                     <div class="w-75">
-                        <b>Max_cap</b><br>
+                        <b>Max cap</b><br>
                         <p><?php echo $row['Max_cap']; ?></p>
                     </div>
                     <div class="w-75">
@@ -118,11 +118,11 @@ try {
                         <p><?php echo $row['Status']; ?></p>                          
                     </div>
                     <div class="w-75">
-                        <b>End_date</b><br>
+                        <b>End date</b><br>
                         <p><?php echo $row['End_date']; ?></p>
                     </div>
                     <div class="w-75">
-                        <b>End_time</b><br>
+                        <b>End time</b><br>
                         <p><?php echo $row['End_time']; ?></p>
                     </div>
                 </div>

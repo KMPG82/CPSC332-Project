@@ -65,11 +65,11 @@ $mysqli->close();
 
                 <div class="d-flex justify-content-evenly text-center text-break mb-4">
                     <div class="w-75">
-                        <b>Start_date</b><br>
+                        <b>Start date</b><br>
                         <input required type="date" name="startDate"class="text-center">                                   
                     </div>
                     <div class="w-75">
-                        <b>Start_time</b><br>
+                        <b>Start time</b><br>
                         <input required type="time" name="startTime"class="text-center">                          
                     </div>
                     <div class="w-75">
@@ -80,11 +80,11 @@ $mysqli->close();
                 
                 <div class="d-flex justify-content-evenly text-center text-break mb-4">
                     <div class="w-75">
-                        <b>Abstract_deadline</b><br>
+                        <b>Abstract deadline</b><br>
                         <input required type="date" name="abstractDeadline"class="text-center">               
                     </div>
                     <div class="w-75">
-                        <b>Max_cap</b><br>
+                        <b>Max cap</b><br>
                         <input required type="text" name="max"class="text-center"> 
                     </div>
                     <div class="w-75">
@@ -118,11 +118,11 @@ $mysqli->close();
                         </select>                   
                     </div>
                     <div class="w-75">
-                        <b>End_date</b><br>
+                        <b>End date</b><br>
                         <input required type="date" name="endDate"class="text-center"> 
                     </div>
                     <div class="w-75">
-                        <b>End_time</b><br>
+                        <b>End time</b><br>
                         <input required type="time" name="endTime"class="text-center"> 
                     </div>
                 </div>
