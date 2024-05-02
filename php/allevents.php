@@ -9,7 +9,7 @@ if (isset($_POST['search']) && !empty($_POST['search'])) {
     //create the query for search
     $sql = "select * from event where Pub_date != 'null' and Pub_time != 'null' and Event_name = '$search'";
 } else {
-    //create the query to fetch all active events
+    //create the query to fetch all events
     $sql = "select * from event where Pub_date != 'null' and Pub_time != 'null'";
 }
 
