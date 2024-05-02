@@ -7,6 +7,6 @@ Nhi Danis\
 Junhao Guo\
 Alex Jun\
 Devin Lai\
-Kevin Ponting\
+Kevin Ponting
 
 
