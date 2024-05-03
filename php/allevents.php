@@ -192,7 +192,7 @@ try {
                 <div class="d-flex justify-content-evenly text-center text-break">
                     <div class="w-100">
                         <?php 
-                        if($userId !== $row['User_id']){
+                        if($userId !== $row['User_id'] && $row['Status']!='Canceled'){
                             echo ("<a href='./enrollevent.php?Event_id=" . $row['Event_id'] . "'><button type='button' class='btn btn-info mt-2 mb-3'>Enroll for this event</button></a>");
                         }
                         ?>
