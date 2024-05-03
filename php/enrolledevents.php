@@ -56,6 +56,8 @@ try {
     </nav>
 
     <body class="mx-0"> 
+        <h1 class="display-2 text-center">Your Enrolled Events</h1>
+
         <?php while($row = $result->fetch_assoc()) {
             ?>
             <div class="d-flex flex-column border-bottom border-top">

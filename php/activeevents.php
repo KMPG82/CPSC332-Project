@@ -63,6 +63,8 @@ try {
     </nav>
 
     <body class="mx-0"> 
+        <h1 class="display-2 text-center">Active Events</h1>
+
         <?php while($row = $result->fetch_assoc()) {
             ?>
             <div class="d-flex flex-column border-bottom border-top">
@@ -192,9 +194,7 @@ try {
                 <div class="d-flex justify-content-evenly text-center text-break">
                     <div class="w-100">
                         <?php 
-                        if($userId !== $row['User_id']){
                             echo ("<a href='./enrollevent.php?Event_id=" . $row['Event_id'] . "'><button type='button' class='btn btn-info mt-2 mb-3'>Enroll for this event</button></a>");
-                        }
                         ?>
                     </div>
                 </div>

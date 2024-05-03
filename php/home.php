@@ -49,6 +49,8 @@ try {
     </nav>
 
     <body class="mx-0"> 
+        <h1 class="display-2 text-center">Your Events</h1>
+
         <a href="./createevent.php">
             <button type="button" class="btn btn-primary btn-lg ml-4 mt-2 mb-2">Create an event</button>
         </a>
