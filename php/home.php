@@ -180,6 +180,17 @@ try {
 
                 <div class="d-flex justify-content-evenly text-center text-break">
                     <div class="w-75">
+                        <b>Publish date</b><br>
+                        <p><?php echo $row['Pub_date']; ?></p>                          
+                    </div>
+                    <div class="w-75">
+                        <b>Publish time</b><br>
+                        <p><?php echo $row['Pub_time']; ?></p>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-evenly text-center text-break">
+                    <div class="w-75">
                         <?php echo ("<a href='./editevent.php?Event_id=" .$row['Event_id']. "'><button type='button' class='btn btn-success mt-2 mb-3'>Edit event</button></a>") ?>
                     </div>
                     <div class="w-75">
