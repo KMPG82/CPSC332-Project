@@ -131,7 +131,7 @@ $mysqli->close();
                     <div class="w-75">
                         <b>Type</b><br>
                         <select name="type">
-                            <option value="Oral presentation">Oral presentation</option>
+                            <option value="Oral Presentation">Oral Presentation</option>
                             <option value="Poster">Poster</option>
                             <option value="Online">Online</option>
                         </select>

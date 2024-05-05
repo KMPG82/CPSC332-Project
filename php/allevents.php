@@ -7,10 +7,10 @@ $userId = $_SESSION["UserID"];
 if (isset($_POST['search']) && !empty($_POST['search'])) {
     $search = $_POST['search'];
     //create the query for search
-    $sql = "select * from event where Pub_date != 'null' and Pub_time != 'null' and Event_name = '$search'";
+    $sql = "select * from event where Pub_date <= CURDATE() and Pub_time <= CURTIME() and Pub_date != 'null' and Pub_time != 'null' and Event_name = '$search'";
 } else {
     //create the query to fetch all events
-    $sql = "select * from event where Pub_date != 'null' and Pub_time != 'null'";
+    $sql = "select * from event where Pub_date <= CURDATE() and Pub_time <= CURTIME() and Pub_date != 'null' and Pub_time != 'null'";
 }
 
 try {

@@ -152,8 +152,8 @@ try {
                         <b>Type</b><br>
                         <select name="type">
                             <?php 
-                                if($event['Type'] == "Oral presentation"){
-                                    echo "<option value='Oral presentation' selected>Oral Presentation</option>";
+                                if($event['Type'] == "Oral Presentation"){
+                                    echo "<option value='Oral Presentation' selected>Oral Presentation</option>";
                                     echo "<option value='Poster'>Poster</option>";
                                     echo "<option value='Online'>Online</option>";
                                 }
