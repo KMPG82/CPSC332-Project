@@ -61,7 +61,7 @@ if (isset($_POST["register"]))
             echo '
             <script>
                 window.location.href="./registration.php";
-                alert("Failed to register. Please make sure your password has at least eight characters, one upper case, one lower case, onenumber, and one special character.")
+                alert("Failed to register. Please make sure your password has at least eight characters, one upper case, one lower case, one number, and one special character.")
             </script>
             ';
         }
