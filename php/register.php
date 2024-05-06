@@ -16,20 +16,55 @@ if (isset($_POST["register"]))
     values ('$email','$password','$firstName','$lastName','$phoneNum');";
 
     try {
-        $result = mysqli_query($mysqli, $sql);
+        $validPassword = true;
 
-        $sql = "select * from user where email='$email' and password='$password';";
+        //check if password at least 8 characters long
+        if (strlen($password) < 8) {
+            $validPassword = false;
+        }
 
-        $result = mysqli_query($mysqli, $sql);
+        //check if password has at least one uppercase letter
+        if (!preg_match('/[A-Z]/', $password)) {
+            $validPassword = false;
+        }
 
-        //convert result from query to array
-        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        //check if password has at least one lowercase letter
+        if (!preg_match('/[a-z]/', $password)) {
+            $validPassword = false;
+        }
 
-        $_SESSION['Email'] = $email;
-        $_SESSION['Password'] = $password;
-        $_SESSION['UserID'] = $row['User_id'];
-        header("location: ./home.php");
+        //check if password has at least one number
+        if (!preg_match('/[0-9]/', $password)) {
+            $validPassword = false;
+        }
 
+        //check if password has at least one special character
+        if (!preg_match('/[^a-zA-Z0-9]/', $password)) {
+            $validPassword = false;
+        }
+
+        if($validPassword){
+            $result = mysqli_query($mysqli, $sql);
+
+            $sql = "select * from user where email='$email' and password='$password';";
+    
+            $result = mysqli_query($mysqli, $sql);
+    
+            //convert result from query to array
+            $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    
+            $_SESSION['Email'] = $email;
+            $_SESSION['Password'] = $password;
+            $_SESSION['UserID'] = $row['User_id'];
+            header("location: ./home.php");
+        } else{
+            echo '
+            <script>
+                window.location.href="./registration.php";
+                alert("Failed to register. Please make sure your password has at least eight characters, one upper case, one lower case, onenumber, and one special character.")
+            </script>
+            ';
+        }
     } catch (mysqli_sql_exception $e) {
         echo '
         <script>
