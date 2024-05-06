@@ -11,7 +11,7 @@ $eventId = $_GET['Event_id'];
 
 //create the query
 $sql = "insert into enrolled_by (User_id, Event_id)
-VALUES ($userId, $eventId)";
+values ($userId, $eventId);";
 
 try {
     $result = mysqli_query($mysqli, $sql);

@@ -26,7 +26,7 @@ if (isset($_POST["update"])) {
 
     $sql = "update event set Start_date='$startDate', Start_time='$startTime', Venue='$venue', Abstract_deadline='$abstractDeadline', Pub_date='$pubDate', Pub_time='$pubTime', Max_cap='$max', 
     Description='$description', Event_name='$eventName', Type='$type', City='$city', State='$state', Street='$street', Zip='$zip', Status='$status', End_date='$endDate', End_time='$endTime', Uni_id=$university
-    where Event_id= $eventId";
+    where Event_id=$eventId;";
 
     try {
         //execute the query

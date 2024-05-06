@@ -5,7 +5,7 @@ $eventId = $_GET['Event_id'];
 
 if ($eventId) {
     $sql = "delete event, enrolled_by, presenters, sponsors, keynote_speakers
-    FROM event
+    from event
     left join enrolled_by on event.Event_id = enrolled_by.Event_id
     left join presenters on event.Event_id = presenters.Event_id
     left join sponsors on event.Event_id = sponsors.Event_id

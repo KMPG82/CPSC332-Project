@@ -5,14 +5,11 @@ include("connection.php");
 $userId = $_SESSION["UserID"];
 
 //create the query
-$sql = "select * from university";
+$sql = "select * from university;";
 
 try {
     //execute the query
     $result = mysqli_query($mysqli, $sql);
-
-    //convert result from query to array
-    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 } catch (Exception $e) {
     echo '
     <script>

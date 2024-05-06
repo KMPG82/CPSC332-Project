@@ -11,8 +11,8 @@ $_SESSION['eventId'] = $eventId;
 
 
 //create the query
-$sql = "select * from event where Event_id='$eventId'";
-$query = "select * from university";
+$sql = "select * from event where Event_id=$eventId;";
+$query = "select * from university;";
 
 try {
     //execute the query

@@ -9,7 +9,7 @@ $userId = $_SESSION["UserID"];
 $eventId = $_GET['Event_id'];
 
 //create the query
-$sql = "delete from enrolled_by where User_id = $userId and Event_id = $eventId";
+$sql = "delete from enrolled_by where User_id = $userId and Event_id = $eventId;";
 
 try {
     $result = mysqli_query($mysqli, $sql);
@@ -19,7 +19,7 @@ try {
     echo '
     <script>
         window.location.href="./enrolledevents.php";
-        alert("Failed to unenroll from event. Please try again.'.$e->getMessage().'")
+        alert("Failed to unenroll from event. Please try again.")
     </script>
     ';
     } 

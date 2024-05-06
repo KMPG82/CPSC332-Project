@@ -13,12 +13,12 @@ if (isset($_POST["register"]))
 
     //create the query
     $sql = "insert into user(Email, Password, F_name, L_name, P_number)
-    VALUES ('$email','$password','$firstName','$lastName','$phoneNum')";
+    values ('$email','$password','$firstName','$lastName','$phoneNum');";
 
     try {
         $result = mysqli_query($mysqli, $sql);
 
-        $sql = "select * from user where email='$email' and password='$password'";
+        $sql = "select * from user where email='$email' and password='$password';";
 
         $result = mysqli_query($mysqli, $sql);
 
@@ -34,7 +34,7 @@ if (isset($_POST["register"]))
         echo '
         <script>
             window.location.href="./registration.php";
-            alert("Failed to register. An account is already registered with this email or password. '.$e->getMessage().'")
+            alert("Failed to register. An account is already registered with this email or password.")
         </script>
         ';
         }

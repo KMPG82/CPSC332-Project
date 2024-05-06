@@ -8,9 +8,8 @@ $userId = $_SESSION["UserID"];
 $sql = "
 select e.*
 from event e
-join enrolled_by eb ON e.Event_id = eb.Event_id
-WHERE eb.User_id = $userId;
-";
+join enrolled_by eb on e.Event_id = eb.Event_id
+where eb.User_id = $userId;";
 
 try {
     //execute the query
@@ -135,7 +134,7 @@ try {
                         <b>University</b><br>
                         <p><?php 
                         $university=$row['Uni_id']; 
-                        $query = "select Uni_name from university where Uni_id='$university'";
+                        $query = "select Uni_name from university where Uni_id=$university;";
                         $fetch = mysqli_query($mysqli, $query);
                         $uni = $fetch->fetch_assoc();
                         echo $uni['Uni_name']; 
@@ -149,7 +148,7 @@ try {
                         <ul class="list-unstyled">
                             <?php 
                                 $event=$row['Event_id']; 
-                                $query1 = "select * from sponsors where Event_id='$event'";
+                                $query1 = "select * from sponsors where Event_id=$event;";
                                 $sponsorsArray = mysqli_query($mysqli, $query1);
                                 while($presenter = $sponsorsArray->fetch_assoc()) {?>
                                         <li class="text-center"><?php echo $presenter['Spon_name'] ?></li>
@@ -162,7 +161,7 @@ try {
                         <ul class="list-unstyled">
                             <?php 
                                 $event=$row['Event_id']; 
-                                $query2 = "select * from presenters where Event_id='$event'";
+                                $query2 = "select * from presenters where Event_id=$event;";
                                 $presentersArray = mysqli_query($mysqli, $query2);
                                 while($presenter = $presentersArray->fetch_assoc()) {?>
                                         <li class="text-center"><?php echo $presenter['Fname'] ?> <?php echo $presenter['Lname'] ?> </li>
@@ -175,7 +174,7 @@ try {
                         <ul class="list-unstyled">
                             <?php 
                                 $event=$row['Event_id']; 
-                                $query3 = "select * from keynote_speakers where Event_id='$event'";
+                                $query3 = "select * from keynote_speakers where Event_id=$event;";
                                 $keynoteArray = mysqli_query($mysqli, $query3);
                                 while($keynote = $keynoteArray->fetch_assoc()) {?>
                                         <li class="text-center"><?php echo $keynote['Fname'] ?> <?php echo $keynote['Lname'] ?></li>
