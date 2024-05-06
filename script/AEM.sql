@@ -95,7 +95,8 @@ INSERT INTO UNIVERSITY (Inserted_at, Uni_name) VALUES
 (NOW(), 'Stanford University'),
 (NOW(), 'Massachusetts Institute of Technology (MIT)'),
 (NOW(), 'California Institute of Technology (Caltech)'),
-(NOW(), 'University of Oxford');
+(NOW(), 'University of Oxford'),
+(NOW(), 'California State University, Fullerton');
 
 INSERT INTO USER (Inserted_at, Email, Password, F_name, L_name, P_number)
 VALUES
