@@ -1,5 +1,5 @@
 <?php
-//get ssn from query string
+//get event id from query string
 if(!isset($_GET['Event_id'])) {
     header("location:./home.php");
 }
